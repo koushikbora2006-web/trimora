@@ -13,6 +13,8 @@ export function chunkText(text, source) {
       mergedChunks[mergedChunks.length - 1].startsWith("Question:")
     ) {
       mergedChunks[mergedChunks.length - 1] += "\n\n" + current;
+    } else if (current.trim().toUpperCase() === "SERVICES" && i + 1 < rawChunks.length) {
+      continue;
     } else {
       mergedChunks.push(current);
     }

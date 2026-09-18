@@ -463,6 +463,33 @@ const INITIAL_DB: DatabaseSchema = {
   ],
   knowledge_documents: [
     {
+      id: 'doc-salon-info',
+      salon_id: 'john_salon_kkd',
+      file_name: 'salon_info.txt',
+      file_type: 'txt',
+      file_size: 580,
+      content: `Salon Name: John Salon
+Address: Cinema Hall Road, Opposite CNC Theatre, Kakinada, Andhra Pradesh.
+Contact: 6303522044
+Opening Hours: Morning: 9:00 AM - 2:00 PM and Evening: 4:00 PM - 10:00 PM (Break: 2:00 PM - 4:00 PM).
+
+Services:
+Hair Styling: Starting price: ₹250. Duration: approximately 20–40 minutes depending on the selected hairstyle or service.
+Haircut: Available at John Salon. Price information has not been provided. Duration information has not been provided.
+Beard Styling: Available at John Salon. Price information has not been provided. Duration information has not been provided.
+Hair Grooming: Available at John Salon. Price information has not been provided. Duration information has not been provided.
+Other Salon Services: Other salon services may be available. Specific details have not been provided.
+
+Appointment:
+Customers can contact John Salon at 6303522044 for appointment enquiries. Availability must be confirmed directly with the salon.
+
+Walk-in:
+Walk-in availability must be confirmed directly with the salon.`,
+      chunk_count: 4,
+      processing_status: 'indexed',
+      created_at: new Date().toISOString()
+    },
+    {
       id: 'doc-faq',
       salon_id: 'john_salon_kkd',
       file_name: 'faq.txt',
@@ -609,6 +636,20 @@ Do not invent cancellation fees, refund rules, payment methods, deposits, discou
     }
   ],
   knowledge_chunks: [
+    {
+      id: 'salon_info.txt-0',
+      document_id: 'doc-salon-info',
+      salon_id: 'john_salon_kkd',
+      content: 'Salon Name: John Salon\nAddress: Cinema Hall Road, Opposite CNC Theatre, Kakinada, Andhra Pradesh.\nContact: 6303522044\nOpening Hours: Morning: 9:00 AM - 2:00 PM and Evening: 4:00 PM - 10:00 PM (Break: 2:00 PM - 4:00 PM).',
+      metadata: { source_file: 'salon_info.txt', section: 'Salon Overview' }
+    },
+    {
+      id: 'services.txt-0',
+      document_id: 'doc-services',
+      salon_id: 'john_salon_kkd',
+      content: 'Hair Styling: Starting price: ₹250. Duration: approximately 20–40 minutes depending on the selected hairstyle or service.',
+      metadata: { source_file: 'services.txt', section: 'Hair Styling' }
+    },
     {
       id: 'chk-1',
       document_id: 'doc-faq',

@@ -118,7 +118,7 @@ export default function SalonChatbot({
           {
             id: `err-${Date.now()}`,
             role: 'assistant',
-            content: "I don't have that information yet. Please contact John Salon directly at +91 98480 12345.",
+            content: "I don't have that information yet. Please contact John Salon directly at 6303522044.",
             timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
           }
         ]);
@@ -129,7 +129,7 @@ export default function SalonChatbot({
         {
           id: `err-${Date.now()}`,
           role: 'assistant',
-          content: "I don't have that information yet. Please contact John Salon directly at +91 98480 12345.",
+          content: "I don't have that information yet. Please contact John Salon directly at 6303522044.",
           timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
         }
       ]);

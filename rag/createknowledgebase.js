@@ -31,6 +31,16 @@ async function createKnowledgeBase() {
       .readdirSync(dataFolder)
       .filter((file) => file.endsWith(".txt"));
 
+    const preferredOrder = ["salon_info.txt", "services.txt", "faq.txt", "policies.txt", "john_salon_beauty_spa_guide.txt"];
+    files.sort((a, b) => {
+      const idxA = preferredOrder.indexOf(a);
+      const idxB = preferredOrder.indexOf(b);
+      if (idxA !== -1 && idxB !== -1) return idxA - idxB;
+      if (idxA !== -1) return -1;
+      if (idxB !== -1) return 1;
+      return a.localeCompare(b);
+    });
+
     if (files.length === 0) {
       throw new Error(
         "No .txt files found inside rag/data"
