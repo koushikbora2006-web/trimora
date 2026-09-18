@@ -1,0 +1,17 @@
+{
+  "name": "trimora-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "rag:create": "node rag/createknowledgebase.js"
+  },
+  "dependencies": {
+    "@huggingface/transformers": "^3.7.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "groq-sdk": "^0.26.0",
+    "mongoose": "^8.8.0"
+  }
+}
