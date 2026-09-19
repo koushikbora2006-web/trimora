@@ -1,4 +1,4 @@
-// Trimora Core Domain Types
+// Trimorva Core Domain Types
 
 export type UserRole = 'customer' | 'salon_owner' | 'admin';
 
@@ -225,4 +225,112 @@ export interface SalonReview {
   rating: number;
   comment: string;
   date: string;
+}
+
+// ---------------------------------------------------------------------------
+// Trimora Customer Relationship Management (CRM) Domain Types
+// ---------------------------------------------------------------------------
+
+export type CustomerStatus = 'new' | 'active' | 'returning' | 'loyal' | 'vip' | 'inactive' | 'at_risk';
+
+export type CustomerGender = 'male' | 'female' | 'non-binary' | 'other' | 'prefer_not_to_say';
+
+export interface CustomerPreferences {
+  preferred_stylist_id?: string;
+  preferred_stylist_name?: string;
+  preferred_days?: string[];
+  preferred_time_slots?: string[];
+  favorite_services?: string[];
+  hair_type?: string;
+  scalp_skin_type?: string;
+  allergies?: string[];
+  beverage_preference?: string;
+  communication_channel?: 'whatsapp' | 'sms' | 'email' | 'call';
+  formula_notes?: string;
+  special_requests?: string;
+}
+
+export interface CustomerStats {
+  total_appointments: number;
+  completed_appointments: number;
+  cancelled_appointments: number;
+  no_show_appointments: number;
+  total_spent: number;
+  average_order_value: number;
+  first_visit_at?: string;
+  last_visit_at?: string;
+  next_appointment_at?: string;
+  days_since_last_visit?: number;
+}
+
+export interface CustomerMarketing {
+  accepts_sms: boolean;
+  accepts_email: boolean;
+  accepts_whatsapp: boolean;
+  subscribed_at?: string;
+}
+
+export interface CustomerNote {
+  id: string;
+  customer_id: string;
+  salon_id: string;
+  author_id?: string;
+  author_name: string;
+  note_type: 'general' | 'formula' | 'preference' | 'complaint' | 'vip_request';
+  content: string;
+  is_pinned?: boolean;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface CustomerActivity {
+  id: string;
+  customer_id: string;
+  salon_id: string;
+  activity_type: 'appointment_booked' | 'appointment_completed' | 'appointment_cancelled' | 'note_added' | 'tag_added' | 'profile_updated' | 'offer_redeemed';
+  description: string;
+  metadata?: Record<string, any>;
+  created_at: string;
+}
+
+export interface Customer {
+  id: string;
+  salon_id: string;
+  first_name: string;
+  last_name: string;
+  full_name: string;
+  phone: string;
+  normalized_phone: string;
+  email?: string;
+  gender?: CustomerGender;
+  birthday?: string; // YYYY-MM-DD
+  anniversary?: string; // YYYY-MM-DD
+  avatar_url?: string;
+  status: CustomerStatus;
+  tags: string[];
+  preferences?: CustomerPreferences;
+  stats: CustomerStats;
+  marketing: CustomerMarketing;
+  notes_count: number;
+  internal_notes?: string;
+  is_archived: boolean;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface CRMAnalytics {
+  total_customers: number;
+  active_customers: number;
+  new_customers_30d: number;
+  loyal_customers: number;
+  vip_customers: number;
+  at_risk_customers: number;
+  churn_rate_pct: number;
+  retention_rate_pct: number;
+  total_revenue_generated: number;
+  average_customer_lifetime_value: number;
+  average_visit_frequency_days: number;
+  status_breakdown: Record<CustomerStatus, number>;
+  monthly_retention: { month: string; retained: number; total: number }[];
+  top_spenders: Customer[];
 }

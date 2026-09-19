@@ -1,5 +1,8 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { 
   Scissors, 
   Sparkles, 
@@ -13,6 +16,13 @@ import {
 } from 'lucide-react';
 
 export default function Footer() {
+  const pathname = usePathname();
+
+  // Hide public footer on dashboard and admin workspaces
+  if (pathname?.startsWith('/dashboard') || pathname?.startsWith('/admin')) {
+    return null;
+  }
+
   return (
     <footer id="contact" className="w-full bg-[#070707] text-[#9E988F] border-t border-white/[0.08] relative overflow-hidden">
       
@@ -33,13 +43,13 @@ export default function Footer() {
                   JOHN SALON
                 </span>
                 <span className="text-[9px] uppercase tracking-[0.28em] text-[#C5A880] font-semibold -mt-1">
-                  KAKINADA · ATELIER
+                  POWERED BY TRIMORVA · KAKINADA
                 </span>
               </div>
             </Link>
 
             <p className="text-xs text-[#9E988F] leading-relaxed max-w-sm">
-              A bespoke grooming destination where timeless salon craftsmanship harmonizes with modern AI style consultation. Dedicated to precision, luxury, and elevated confidence.
+              John Salon is Kakinada’s bespoke grooming atelier, hosted on the Trimorva digital salon platform. Where timeless salon craftsmanship harmonizes with modern AI style consultation.
             </p>
 
             <div className="pt-2 flex items-center gap-3 text-xs">
@@ -153,8 +163,8 @@ export default function Footer() {
 
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-[#C5A880] shrink-0" />
-                <a href="tel:+919848012345" className="hover:text-[#F7F4EE] transition-colors font-medium">
-                  +91 98480 12345
+                <a href="tel:6303522044" className="hover:text-[#F7F4EE] transition-colors font-medium">
+                  6303522044
                 </a>
               </div>
 
@@ -181,7 +191,7 @@ export default function Footer() {
         {/* Bottom Bar & Copyright */}
         <div className="mt-16 pt-8 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-[#66615B]">
           <div>
-            © {new Date().getFullYear()} John Salon KKD. All rights reserved. Bhanugudi Junction, Kakinada.
+            © {new Date().getFullYear()} John Salon · Trimorva Application. All rights reserved. Cinema Hall Road, Kakinada.
           </div>
           <div className="flex items-center gap-6">
             <span className="hover:text-[#9E988F] transition-colors cursor-pointer">Privacy Safeguards</span>

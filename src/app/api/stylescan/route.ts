@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { analyzeFaceImage, generateHairstyleRecommendations, validateFaceImage } from '@/lib/vision/stylescan';
 import { StyleScanPreferences } from '@/lib/types';
 
+export const dynamic = 'force-dynamic';
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();

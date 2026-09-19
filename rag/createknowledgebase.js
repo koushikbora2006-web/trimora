@@ -18,7 +18,7 @@ const vectorFile = path.join(
 async function createKnowledgeBase() {
   try {
     console.log("=================================");
-    console.log("Creating Trimora Knowledge Base");
+    console.log("Creating Trimorva Knowledge Base");
     console.log("=================================");
 
     if (!fs.existsSync(vectorFolder)) {

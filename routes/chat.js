@@ -9,7 +9,7 @@ const router = express.Router();
 router.get("/", (req, res) => {
   res.json({
     status: "ok",
-    message: "Trimora RAG Chatbot API is active and ready."
+    message: "Trimorva RAG Chatbot API is active and ready."
   });
 });
 

@@ -4,9 +4,9 @@ import Navbar from '@/components/common/Navbar';
 import Footer from '@/components/common/Footer';
 
 export const metadata: Metadata = {
-  title: 'John Salon | Premium Grooming Experience & AI StyleScan',
-  description: 'Discover a refined grooming experience where expert craftsmanship meets personalized style. Featuring John Salon Concierge AI, StyleScan face analysis, and bespoke grooming services at Bhanugudi Junction, Kakinada.',
-  keywords: ['John Salon', 'Luxury Salon Kakinada', 'Premium Grooming', 'AI Hairstyle Recommendation', 'Bhanugudi Junction Salon', 'John Salon KKD'],
+  title: 'John Salon | Trimorva — Luxury Grooming Experience & AI StyleScan',
+  description: 'Discover John Salon on Trimorva, Kakinada’s premier luxury grooming atelier. Featuring grounded RAG concierge AI, StyleScan face analysis, and bespoke grooming services on Cinema Hall Road.',
+  keywords: ['John Salon', 'Trimorva', 'Luxury Salon Kakinada', 'Premium Grooming', 'AI Hairstyle Recommendation', 'Cinema Hall Road Salon', 'John Salon KKD'],
 };
 
 export default function RootLayout({

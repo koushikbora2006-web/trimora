@@ -8,6 +8,7 @@ import {
   Store, 
   Scissors, 
   Calendar, 
+  Users,
   Bot, 
   FileText, 
   Tag, 
@@ -41,9 +42,10 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
 
   const navItems = [
     { href: '/dashboard', label: 'Overview', icon: LayoutDashboard },
-    { href: '/dashboard/profile', label: 'Salon Profile', icon: Store },
-    { href: '/dashboard/services', label: 'Services & Rates', icon: Scissors },
+    { href: '/dashboard/crm', label: 'Client CRM', icon: Users },
     { href: '/dashboard/appointments', label: 'Live Appointments', icon: Calendar },
+    { href: '/dashboard/services', label: 'Services & Rates', icon: Scissors },
+    { href: '/dashboard/profile', label: 'Salon Profile', icon: Store },
     { href: '/dashboard/knowledge', label: 'Knowledge Base (RAG)', icon: FileText },
     { href: '/dashboard/offers', label: 'Offers & Promos', icon: Tag },
     { href: '/dashboard/chatbot', label: 'AI Concierge Settings', icon: Bot },
@@ -62,8 +64,8 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
               <Scissors className="w-4 h-4" />
             </div>
             <div>
-              <span className="font-serif font-bold text-base tracking-wider block text-[#F7F4EE]">JOHN SALON</span>
-              <span className="text-[10px] text-[#C5A880] uppercase tracking-widest block">Atelier Portal</span>
+              <span className="font-serif font-bold text-base tracking-wider block text-[#F7F4EE]">TRIMORVA</span>
+              <span className="text-[10px] text-[#C5A880] uppercase tracking-widest block">John Salon Portal</span>
             </div>
           </div>
 
@@ -94,7 +96,9 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
           <nav className="space-y-1">
             {navItems.map((item) => {
               const Icon = item.icon;
-              const isActive = pathname === item.href;
+              const isActive = item.href === '/dashboard' 
+                ? pathname === '/dashboard' 
+                : pathname === item.href || pathname.startsWith(item.href + '/');
               return (
                 <Link
                   key={item.href}
@@ -128,7 +132,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
           )}
 
           <div className="text-[10px] text-[#66615B] text-center">
-            John Salon KKD • Bhanugudi Studio
+            John Salon KKD • Trimorva Platform
           </div>
         </div>
 

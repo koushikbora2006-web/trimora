@@ -170,22 +170,22 @@ export default function ServicesManagementPage() {
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <span className="text-xs font-semibold uppercase tracking-wider text-salon-darkgold">
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#C5A880]">
               Service Menu
             </span>
-            <h1 className="font-serif text-3xl font-bold text-salon-charcoal">
+            <h1 className="font-serif text-3xl font-bold text-[#F7F4EE]">
               Services & Pricing Catalog
             </h1>
-            <p className="text-xs text-salon-muted">
+            <p className="text-xs text-[#9E988F]">
               Manage your treatment menu, pricing, durations, and active status.
             </p>
           </div>
 
           <button
             onClick={openAddModal}
-            className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-salon-charcoal text-white text-xs font-semibold hover:bg-black transition-all shadow-sm"
+            className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#C5A880] to-[#E5C590] text-[#0A0A0A] text-xs font-semibold hover:brightness-110 transition-all shadow-[0_0_15px_rgba(197,168,128,0.2)]"
           >
-            <Plus className="w-3.5 h-3.5 text-salon-bronze" />
+            <Plus className="w-3.5 h-3.5 text-[#0A0A0A]" />
             <span>Add New Service</span>
           </button>
         </div>
@@ -193,46 +193,46 @@ export default function ServicesManagementPage() {
         {/* Search & Counter Filter */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="relative w-full sm:w-72">
-            <Search className="w-4 h-4 text-salon-muted absolute left-3 top-3" />
+            <Search className="w-4 h-4 text-[#9E988F] absolute left-3 top-3" />
             <input
               type="text"
               placeholder="Search services or categories..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-9 pr-4 py-2 text-xs bg-white border border-salon-sand rounded-xl focus:outline-none focus:border-salon-bronze"
+              className="w-full pl-9 pr-4 py-2 text-xs bg-[#141414] text-[#F7F4EE] border border-white/[0.1] rounded-xl focus:outline-none focus:border-[#C5A880] placeholder:text-[#66615B]"
             />
           </div>
 
-          <span className="text-xs text-salon-muted self-end sm:self-center">
+          <span className="text-xs text-[#9E988F] self-end sm:self-center">
             Showing {filtered.length} of {services.length} services
           </span>
         </div>
 
         {/* Services Table or Empty State */}
         {filtered.length === 0 ? (
-          <div className="p-16 text-center bg-white rounded-3xl border border-salon-sand space-y-4 shadow-sm">
-            <Scissors className="w-10 h-10 text-salon-taupe mx-auto" />
+          <div className="p-16 text-center bg-[#141414] rounded-3xl border border-white/[0.08] space-y-4 shadow-[0_10px_30px_rgba(0,0,0,0.4)]">
+            <Scissors className="w-10 h-10 text-white/[0.2] mx-auto" />
             <div className="space-y-1">
-              <h3 className="font-serif text-lg font-bold text-salon-charcoal">
+              <h3 className="font-serif text-lg font-bold text-[#F7F4EE]">
                 Add Your First Service
               </h3>
-              <p className="text-xs text-salon-muted max-w-sm mx-auto">
+              <p className="text-xs text-[#9E988F] max-w-sm mx-auto">
                 Your menu is currently empty. Add your haircuts, coloring treatments, and styling rituals to showcase on your public page and AI assistant.
               </p>
             </div>
             <button
               onClick={openAddModal}
-              className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-salon-charcoal text-white text-xs font-semibold hover:bg-black transition-all"
+              className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#C5A880] to-[#E5C590] text-[#0A0A0A] text-xs font-semibold hover:brightness-110 transition-all shadow-[0_0_15px_rgba(197,168,128,0.2)]"
             >
-              <Plus className="w-3.5 h-3.5 text-salon-bronze" />
+              <Plus className="w-3.5 h-3.5 text-[#0A0A0A]" />
               <span>Create Service</span>
             </button>
           </div>
         ) : (
-          <div className="bg-white rounded-3xl border border-salon-sand shadow-sm overflow-hidden">
+          <div className="bg-[#141414] rounded-3xl border border-white/[0.08] shadow-[0_10px_30px_rgba(0,0,0,0.4)] overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs">
-                <thead className="bg-salon-cream border-b border-salon-sand text-salon-charcoal font-semibold uppercase tracking-wider text-[10px]">
+                <thead className="bg-[#181818] border-b border-white/[0.08] text-[#C5A880] font-semibold uppercase tracking-wider text-[10px]">
                   <tr>
                     <th className="py-3.5 px-5">Service Name</th>
                     <th className="py-3.5 px-4">Category</th>
@@ -242,34 +242,34 @@ export default function ServicesManagementPage() {
                     <th className="py-3.5 px-5 text-right">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-salon-sand/50">
+                <tbody className="divide-y divide-white/[0.05]">
                   {filtered.map((service) => (
-                    <tr key={service.id} className="hover:bg-salon-ivory/50 transition-colors">
+                    <tr key={service.id} className="hover:bg-white/[0.04] transition-colors">
                       <td className="py-3.5 px-5">
-                        <div className="font-semibold text-salon-charcoal">{service.name}</div>
-                        <div className="text-[11px] text-salon-muted line-clamp-1">{service.description}</div>
+                        <div className="font-semibold text-[#F7F4EE]">{service.name}</div>
+                        <div className="text-[11px] text-[#9E988F] line-clamp-1">{service.description}</div>
                       </td>
                       <td className="py-3.5 px-4">
-                        <span className="bg-salon-sand/60 text-salon-charcoal px-2 py-0.5 rounded-full text-[10px] font-medium">
+                        <span className="px-2.5 py-0.5 rounded-full bg-[#222222] border border-white/[0.08] text-[#E5C590] text-[10px] font-medium">
                           {service.category}
                         </span>
                       </td>
-                      <td className="py-3.5 px-4 font-serif font-bold text-salon-charcoal text-sm">
+                      <td className="py-3.5 px-4 font-serif font-bold text-sm text-[#C5A880]">
                         ₹{service.price}
                       </td>
-                      <td className="py-3.5 px-4 text-salon-muted">
+                      <td className="py-3.5 px-4 text-[#BEB8AE]">
                         <div className="flex items-center gap-1">
-                          <Clock className="w-3 h-3 text-salon-bronze" />
-                          <span>{service.duration_minutes} mins</span>
+                          <Clock className="w-3 h-3 text-[#C5A880]" />
+                          <span>{service.duration_minutes} min</span>
                         </div>
                       </td>
                       <td className="py-3.5 px-4">
                         <button
                           onClick={() => handleToggleActive(service)}
-                          className={`text-[10px] font-semibold px-2 py-0.5 rounded-full uppercase tracking-wider ${
+                          className={`text-[10px] font-semibold px-2.5 py-0.5 rounded-full uppercase tracking-wider transition-colors ${
                             service.is_active
-                              ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
-                              : 'bg-gray-100 text-gray-500'
+                              ? 'bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 hover:bg-emerald-500/25'
+                              : 'bg-white/[0.06] text-[#9E988F] border border-white/[0.08] hover:bg-white/[0.1]'
                           }`}
                         >
                           {service.is_active ? 'Active' : 'Inactive'}
@@ -278,14 +278,14 @@ export default function ServicesManagementPage() {
                       <td className="py-3.5 px-5 text-right space-x-2">
                         <button
                           onClick={() => openEditModal(service)}
-                          className="p-1 text-salon-muted hover:text-salon-charcoal rounded-lg hover:bg-salon-sand transition-colors"
+                          className="p-1.5 text-[#9E988F] hover:text-[#C5A880] rounded-lg hover:bg-white/[0.06] transition-colors"
                           title="Edit"
                         >
                           <Edit3 className="w-4 h-4" />
                         </button>
                         <button
                           onClick={() => handleDelete(service.id)}
-                          className="p-1 text-red-500 hover:text-red-700 rounded-lg hover:bg-red-50 transition-colors"
+                          className="p-1.5 text-red-400 hover:text-red-300 rounded-lg hover:bg-red-500/15 transition-colors"
                           title="Delete"
                         >
                           <Trash2 className="w-4 h-4" />
@@ -301,16 +301,16 @@ export default function ServicesManagementPage() {
 
         {/* Add/Edit Modal */}
         {modalOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs animate-in fade-in duration-150">
-            <div className="w-full max-w-lg bg-white rounded-3xl border border-salon-sand shadow-2xl p-6 space-y-5">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-in fade-in duration-150">
+            <div className="w-full max-w-lg bg-[#141414] text-[#F7F4EE] rounded-3xl border border-white/[0.12] shadow-2xl p-6 space-y-5">
               
-              <div className="flex justify-between items-center pb-3 border-b border-salon-sand">
-                <h3 className="font-serif text-lg font-bold text-salon-charcoal">
+              <div className="flex justify-between items-center pb-3 border-b border-white/[0.08]">
+                <h3 className="font-serif text-lg font-bold text-[#F7F4EE]">
                   {editingService ? 'Edit Service' : 'Add New Service'}
                 </h3>
                 <button
                   onClick={() => setModalOpen(false)}
-                  className="p-1 rounded-full hover:bg-salon-sand text-salon-muted"
+                  className="p-1 rounded-full hover:bg-white/[0.08] text-[#9E988F] hover:text-[#F7F4EE] transition-colors"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -318,57 +318,57 @@ export default function ServicesManagementPage() {
 
               <form onSubmit={handleSave} className="space-y-4 text-xs">
                 <div>
-                  <label className="font-semibold text-salon-charcoal block mb-1">Service Name *</label>
+                  <label className="font-semibold text-[#F7F4EE] block mb-1">Service Name *</label>
                   <input
                     type="text"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     required
                     placeholder="e.g. Signature Scissor Haircut"
-                    className="w-full px-3.5 py-2 bg-salon-ivory border border-salon-sand rounded-xl focus:outline-none focus:border-salon-bronze"
+                    className="w-full px-3.5 py-2.5 bg-[#0E0E0E] text-[#F7F4EE] border border-white/[0.1] rounded-xl focus:outline-none focus:border-[#C5A880] placeholder:text-[#66615B]"
                   />
                 </div>
 
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <label className="font-semibold text-salon-charcoal block mb-1">Category</label>
+                    <label className="font-semibold text-[#F7F4EE] block mb-1">Category</label>
                     <select
                       value={category}
                       onChange={(e) => setCategory(e.target.value)}
-                      className="w-full px-3 py-2 bg-salon-ivory border border-salon-sand rounded-xl focus:outline-none focus:border-salon-bronze"
+                      className="w-full px-3 py-2.5 bg-[#0E0E0E] text-[#F7F4EE] border border-white/[0.1] rounded-xl focus:outline-none focus:border-[#C5A880]"
                     >
-                      <option value="Haircut">Haircut</option>
-                      <option value="Coloring">Coloring</option>
-                      <option value="Styling">Styling</option>
-                      <option value="Hair Spa">Hair Spa</option>
-                      <option value="Beard & Grooming">Beard & Grooming</option>
-                      <option value="Treatment">Treatment</option>
+                      <option value="Haircut" className="bg-[#141414] text-[#F7F4EE]">Haircut</option>
+                      <option value="Coloring" className="bg-[#141414] text-[#F7F4EE]">Coloring</option>
+                      <option value="Styling" className="bg-[#141414] text-[#F7F4EE]">Styling</option>
+                      <option value="Hair Spa" className="bg-[#141414] text-[#F7F4EE]">Hair Spa</option>
+                      <option value="Beard & Grooming" className="bg-[#141414] text-[#F7F4EE]">Beard & Grooming</option>
+                      <option value="Treatment" className="bg-[#141414] text-[#F7F4EE]">Treatment</option>
                     </select>
                   </div>
 
                   <div>
-                    <label className="font-semibold text-salon-charcoal block mb-1">Price (₹) *</label>
+                    <label className="font-semibold text-[#F7F4EE] block mb-1">Price (₹) *</label>
                     <input
                       type="number"
                       value={price}
                       onChange={(e) => setPrice(e.target.value)}
                       required
                       min={0}
-                      className="w-full px-3.5 py-2 bg-salon-ivory border border-salon-sand rounded-xl focus:outline-none focus:border-salon-bronze"
+                      className="w-full px-3.5 py-2.5 bg-[#0E0E0E] text-[#F7F4EE] border border-white/[0.1] rounded-xl focus:outline-none focus:border-[#C5A880]"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <label className="font-semibold text-salon-charcoal block mb-1">Duration (Minutes)</label>
+                    <label className="font-semibold text-[#F7F4EE] block mb-1">Duration (Minutes)</label>
                     <input
                       type="number"
                       value={duration}
                       onChange={(e) => setDuration(e.target.value)}
                       min={5}
                       step={5}
-                      className="w-full px-3.5 py-2 bg-salon-ivory border border-salon-sand rounded-xl focus:outline-none focus:border-salon-bronze"
+                      className="w-full px-3.5 py-2.5 bg-[#0E0E0E] text-[#F7F4EE] border border-white/[0.1] rounded-xl focus:outline-none focus:border-[#C5A880]"
                     />
                   </div>
 
@@ -378,36 +378,36 @@ export default function ServicesManagementPage() {
                         type="checkbox"
                         checked={isActive}
                         onChange={(e) => setIsActive(e.target.checked)}
-                        className="rounded text-salon-charcoal accent-salon-charcoal"
+                        className="rounded accent-[#C5A880]"
                       />
-                      <span className="font-semibold text-salon-charcoal">Visible & Active</span>
+                      <span className="font-semibold text-[#F7F4EE]">Visible & Active</span>
                     </label>
                   </div>
                 </div>
 
                 <div>
-                  <label className="font-semibold text-salon-charcoal block mb-1">Service Description</label>
+                  <label className="font-semibold text-[#F7F4EE] block mb-1">Service Description</label>
                   <textarea
                     rows={3}
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                     placeholder="Describe what is included, wash ritual, styling finish..."
-                    className="w-full p-3 bg-salon-ivory border border-salon-sand rounded-xl focus:outline-none focus:border-salon-bronze"
+                    className="w-full p-3 bg-[#0E0E0E] text-[#F7F4EE] border border-white/[0.1] rounded-xl focus:outline-none focus:border-[#C5A880] placeholder:text-[#66615B]"
                   />
                 </div>
 
-                <div className="flex justify-end gap-2 pt-3 border-t border-salon-sand">
+                <div className="flex justify-end gap-2 pt-3 border-t border-white/[0.08]">
                   <button
                     type="button"
                     onClick={() => setModalOpen(false)}
-                    className="px-4 py-2 rounded-full border border-salon-sand text-salon-muted hover:bg-salon-cream transition-colors"
+                    className="px-4 py-2 rounded-full border border-white/[0.1] text-[#9E988F] hover:text-[#F7F4EE] hover:bg-white/[0.05] transition-colors"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
                     disabled={saving}
-                    className="px-5 py-2 rounded-full bg-salon-charcoal text-white font-semibold hover:bg-black transition-colors"
+                    className="px-5 py-2 rounded-full bg-gradient-to-r from-[#C5A880] to-[#E5C590] text-[#0A0A0A] font-semibold hover:brightness-110 transition-colors shadow-sm"
                   >
                     {saving ? 'Saving...' : 'Save Service'}
                   </button>

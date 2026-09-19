@@ -170,7 +170,7 @@ export default function SalonChatbot({
               John Salon Concierge
             </span>
             <span className="text-[10px] text-[#C5A880] font-medium tracking-wider uppercase">
-              Grounded AI Advisor
+              Trimorva AI Advisor
             </span>
           </div>
         </button>
@@ -195,7 +195,7 @@ export default function SalonChatbot({
                 </div>
                 <div className="text-[11px] text-[#9E988F] flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block" />
-                  <span>Your personal grooming assistant</span>
+                  <span>Trimorva AI · John Salon Concierge</span>
                 </div>
               </div>
             </div>

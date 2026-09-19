@@ -15,7 +15,7 @@ app.use(express.json());
 
 app.get("/", (req, res) => {
   res.json({
-    message: "Trimora backend is running"
+    message: "Trimorva backend is running"
   });
 });
 
@@ -30,7 +30,7 @@ const startServer = async () => {
 
   app.listen(PORT, () => {
     console.log(
-      `Trimora backend running on http://localhost:${PORT}`
+      `Trimorva backend running on http://localhost:${PORT}`
     );
   });
 };

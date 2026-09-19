@@ -42,6 +42,11 @@ export default function Navbar() {
     { label: 'Contact', href: '/#contact' },
   ];
 
+  // Hide public navbar on dashboard and admin workspaces
+  if (pathname?.startsWith('/dashboard') || pathname?.startsWith('/admin')) {
+    return null;
+  }
+
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -62,9 +67,9 @@ export default function Navbar() {
               JOHN SALON
             </span>
             <span className="text-[9px] uppercase tracking-[0.28em] text-[#C5A880] font-semibold -mt-1 flex items-center gap-1.5">
-              <span>KAKINADA</span>
+              <span>TRIMORVA</span>
               <span className="w-1 h-1 rounded-full bg-[#C5A880]/60 inline-block" />
-              <span>SALON & SPA</span>
+              <span>KAKINADA</span>
             </span>
           </div>
         </Link>
